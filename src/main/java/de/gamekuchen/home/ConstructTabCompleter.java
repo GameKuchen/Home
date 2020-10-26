@@ -13,11 +13,11 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class ConstructTabCompleter implements TabCompleter {
-
+    Player p;
     @Override
     public List<String> onTabComplete(CommandSender sender, Command command, String alias, String[] args) {
-        if(command.getName().equalsIgnoreCase("home") || command.getName().equalsIgnoreCase("delhome")){
-            Player p = (Player)sender;
+        if(command.getName().equalsIgnoreCase("home")){
+            p = (Player)sender;
             if(sender instanceof Player){
                 File dir = new File("plugins/Home/players/" + p.getUniqueId());
 
@@ -26,9 +26,18 @@ public class ConstructTabCompleter implements TabCompleter {
                         .map(f -> f.replace(".yml", ""))
                         .collect(Collectors.toList());
             }
-
         }
+        if(command.getName().equalsIgnoreCase("delhome")){
+            p = (Player)sender;
+            if(sender instanceof Player){
+                File dir = new File("plugins/Home/players/" + p.getUniqueId());
 
+                return Stream.of(dir.listFiles())
+                        .map(File::getName)
+                        .map(f -> f.replace(".yml", ""))
+                        .collect(Collectors.toList());
+            }
+        }
         return null;
     }
 }
