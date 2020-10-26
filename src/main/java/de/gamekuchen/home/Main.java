@@ -16,8 +16,8 @@ public final class Main extends JavaPlugin implements Listener {
         return instance;
     }
 
-    public static final String prefix = "§6●§eHome §8|";
-    public static final String noPerms = "§7Dazu hast du §c$lkeine §7Rechte!";
+    static final String prefix = "§6●§eHome §8|";
+    static final String noPerms = "§7Dazu hast du §c$lkeine §7Rechte!";
 
     @Override
     public void onEnable() {
@@ -37,7 +37,7 @@ public final class Main extends JavaPlugin implements Listener {
         Bukkit.addRecipe(recipe);
 
     }
-    public void getCommands() {
+    private void getCommands() {
         this.getCommand("sethome").setExecutor(new setHome());
         this.getCommand("home").setExecutor(new home());
         this.getCommand("delhome").setExecutor(new delHome());
@@ -49,7 +49,7 @@ public final class Main extends JavaPlugin implements Listener {
         // Plugin shutdown logic
     }
     public void onJoin (PlayerJoinEvent e) {}
-    public void loadConfig() {
+    private void loadConfig() {
         getConfig().options().copyDefaults(true);
         saveConfig();
     }

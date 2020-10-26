@@ -12,8 +12,8 @@ import org.bukkit.entity.Player;
 import java.io.File;
 
 public class home implements CommandExecutor{
-    static File file;
-    Player p;
+    private static File file;
+    private Player p;
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         p = (Player) sender;
@@ -34,12 +34,12 @@ public class home implements CommandExecutor{
                 loc.setPitch((float) pitch);
                 loc.setYaw((float) yaw);
                 p.teleport(loc);
-                p.sendMessage(String.valueOf(Main.prefix) + "§eDu bist nun bei deinem Home §6§l" + args[0]);
+                p.sendMessage(Main.prefix + "§eDu bist nun bei deinem Home §6§l" + args[0]);
                 p.sendTitle("§a§l Teleportiert", "§dHome sweet §5home", 10, 70, 20);
                 p.playSound(p.getLocation(), Sound.ENTITY_ENDERMAN_TELEPORT, 100, 0);
 
             }else{
-                p.sendMessage(String.valueOf(Main.prefix) + "§eDas Home §6§l" + args[0] + " §eexistiert nicht!");
+                p.sendMessage(Main.prefix + "§eDas Home §6§l" + args[0] + " §eexistiert nicht!");
             }
 
         }

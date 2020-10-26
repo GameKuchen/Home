@@ -43,11 +43,11 @@ public class setHome implements CommandExecutor {
                     }catch (IOException e){
                         e.printStackTrace();
                     }
-                    p.sendMessage(String.valueOf(Main.prefix)+ "§eDu hast das Home §6§l" + args[0] + " §egesetzt!");
+                    p.sendMessage(Main.prefix+ "§eDu hast das Home §6§l" + args[0] + " §egesetzt!");
                     p.sendTitle("§8(§a§l!§r§8) §a§l§oHomeSet §r §8(§a§l!§r§8)", " §aYour new home has been set", 10, 70, 20);
                     p.playSound(p.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 100, 0);
                 }else {
-                    p.sendMessage(String.valueOf(Main.prefix) + "§eDas Home §6§l" + args[0] + " §egibt es schon!");
+                    p.sendMessage(Main.prefix + "§eDas Home §6§l" + args[0] + " §egibt es schon!");
                 }
             }
         }else {
